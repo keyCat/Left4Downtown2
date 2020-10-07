@@ -1,9 +1,9 @@
 # (C)2004-2008 SourceMod Development Team
 # Makefile written by David "BAILOPAN" Anderson
 
-SMSDK ?= ../sourcemod
-HL2SDK_L4D2 ?= ../hl2sdk
-MMSOURCE ?= ../mmsource
+SMSDK ?= ../_sdk/sm110
+HL2SDK_L4D2 ?= ../_sdk/hl2sdk-l4d2
+MMSOURCE ?= ../_sdk/mm111
 
 #####################################
 ### EDIT BELOW FOR OTHER PROJECTS ###
@@ -52,7 +52,7 @@ LINK += $(HL2LIB)/tier1_i486.a $(HL2LIB)/mathlib_i486.a libvstdlib_srv.so libtie
 
 INCLUDE += -I. -I.. -Isdk -I$(HL2PUB) -I$(HL2PUB)/engine -I$(HL2PUB)/mathlib -I$(HL2PUB)/tier0 \
         -I$(HL2PUB)/tier1 -I$(METAMOD) -I$(METAMOD)/sourcehook -I$(SMSDK)/public -I$(SMSDK)/public/extensions \
-        -I$(SMSDK)/public/amtl -I$(SMSDK)/sourcepawn/include
+        -I$(SMSDK)/public/amtl -I$(SMSDK)/public/amtl/amtl -I$(SMSDK)/sourcepawn/include
 
 CFLAGS += -DSE_EPISODEONE=1 -DSE_DARKMESSIAH=2 -DSE_ORANGEBOX=3 -DSE_BLOODYGOODTIME=4 -DSE_EYE=5 \
 	-DSE_CSS=6 -DSE_ORANGEBOXVALVE=7 -DSE_LEFT4DEAD=8 -DSE_LEFT4DEAD2=9 -DSE_ALIENSWARM=10 \
@@ -64,7 +64,7 @@ CFLAGS += -D_LINUX -Dstricmp=strcasecmp -D_stricmp=strcasecmp -D_strnicmp=strnca
         -D_snprintf=snprintf -D_vsnprintf=vsnprintf -D_alloca=alloca -Dstrcmpi=strcasecmp -Wall -Werror -Wno-switch \
         -Wno-unused -mfpmath=sse -msse -DSOURCEMOD_BUILD -DHAVE_STDINT_H -m32 -DGNUC
 
-CPPFLAGS += -Wno-non-virtual-dtor -fno-exceptions -fno-rtti -fno-threadsafe-statics -Wno-overloaded-virtual -std=c++11
+CPPFLAGS += -Wno-non-virtual-dtor -fno-exceptions -fno-rtti -fno-threadsafe-statics -Wno-overloaded-virtual -std=c++14
 
 ################################################
 ### DO NOT EDIT BELOW HERE FOR MOST PROJECTS ###
